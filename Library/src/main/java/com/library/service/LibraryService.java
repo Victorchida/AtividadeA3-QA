@@ -19,5 +19,11 @@ public class LibraryService {
         this.library.getBooks().add(book);
     }
 
+    public void removeBook(String title, Author author, Publisher publisher) {
+    library.getBooks().removeIf(book -> book.getTitle().equals(title) &&
+                                book.getAuthor().equals(author) &&
+                                book.getPublisher().equals(publisher));
+    }
+
 }
 
