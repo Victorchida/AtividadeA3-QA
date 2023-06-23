@@ -25,4 +25,23 @@ public class LibraryTest {
         assertEquals(1, library.getBooks().size());
         assertTrue(library.getBooks().contains(book));
     }
+
+    @Test
+    public void testRemoveBook() {
+        Author author1 = new Author("J.R.R. Tolkien", "British");
+        Author author2 = new Author("J.K. Rowling", "British");
+        Publisher publisher = new Publisher("Houghton Mifflin", "USA");
+        Book book1 = new Book("The Hobbit", author1, publisher);
+        Book book2 = new Book("Harry Potter and the Philosopher's Stone", author2, publisher);
+
+        libraryService.addBooks(book1);
+        libraryService.addBooks(book2);
+
+        libraryService.removeBook("The Hobbit", author1, publisher);
+
+        assertEquals(1, library.getBooks().size());
+        assertFalse(library.getBooks().contains(book1));
+        assertTrue(library.getBooks().contains(book2));
+    }
+    
 }
