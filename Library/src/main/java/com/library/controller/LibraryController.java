@@ -24,6 +24,13 @@ public class LibraryController {
         return libraryService.searchBooks(title, author, publisher);
     }
 
+    @DeleteMapping("/books")
+    public void removeBook(@RequestParam String title,
+                           @RequestParam Author author,
+                           @RequestParam Publisher publisher) {
+        libraryService.removeBook(title, author, publisher);
+    }
+
 }
 
 
